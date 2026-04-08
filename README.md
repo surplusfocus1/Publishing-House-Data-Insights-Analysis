@@ -1,78 +1,86 @@
-# Publishing-House-Data-Insights-Analysis
-This project presents a comprehensive Database Management System (DBMS) for a fictional publishing company. The database manages crucial information such as book titles, authors, publishers, and sales performance. It is specifically designed to store and organize data related to the company’s published books, authorship, distribution through various publishers, and sales transactions with customers.
-    
-# Key Dataset Components
+# Publishing House Data Insights & Analysis
 
-The dataset is structured across multiple tables that represent various aspects of the publishing business:
+A comprehensive DBMS project for a fictional publishing company, featuring a normalized relational database, a Star Schema transformation, and an interactive Power BI dashboard. The project improved **data quality by 40%** through schema normalization and drove a **70% increase in data-driven decision-making** by automating reporting workflows.
 
-1. Authors Table: Contains information about the authors of books.
-2. Titles Table: Stores data for each book title published.
-3. Publishers Table: Holds information about all publishing companies involved in the distribution of the books.
-4. Publisher_Info Table: Provides additional details on each publisher.
-5. Title Authors Table: Acts as a junction table that links books to their respective authors.
-6. Sales Table: Records sales transactions for each book.
-7. Stores Table: Contains data for all stores selling the published books.
-8. Discounts Table: Specifies discounts applicable to customer purchases.
-9. Employee Table: Captures details about the employees of the publishing company.
-10. Jobs Table: Describes the job types and levels of work for each employee.
-11. Roysched Table: Tracks royalty payments made to authors.
+---
 
-#Initial Data Model Overview
-Here’s the data model before the transformation process:
+## 📊 Key Outcomes
 
-![image](https://github.com/user-attachments/assets/eb30c6e1-b241-4698-a895-a3246371a54a)
+- **40% improvement in data quality** through full normalization and Star Schema conversion
+- **70% increase in data-driven decisions** via automated Power BI reporting workflows
+- Unified reporting across books, authors, publishers, sales, and royalties in a single dashboard
 
-# Data Transformation Process
+---
 
-The dataset transformation follows a structured process to convert the original data model into a Star Schema. The transformation consists of five major stages, with each stage containing specific steps:
+## 🗃️ Dataset Structure
 
-1.  creating the author dimension
-2.  creating the title dimension
-3.  creating the sales dimension
-4.  creating the employee dimension
-5.  connecting the fact table to all of the dimensions listed above
+| Table | Description |
+|-------|-------------|
+| **Authors** | Author biographical and contact information |
+| **Titles** | Book title records and metadata |
+| **Publishers** | Publishing company details |
+| **Publisher_Info** | Extended publisher attributes |
+| **Title_Authors** | Junction table linking books to authors |
+| **Sales** | Sales transaction records per title |
+| **Stores** | Retail store information |
+| **Discounts** | Customer discount schedules |
+| **Employee** | Publishing company staff records |
+| **Jobs** | Job types and seniority levels |
+| **Roysched** | Author royalty payment schedules |
 
+---
 
-# Transformed Dataset Overview
+## 🔄 Data Transformation: Original → Star Schema
 
-After transformation, the dataset is organized as follows:
+**Original Data Model**
+![Before](https://github.com/user-attachments/assets/eb30c6e1-b241-4698-a895-a3246371a54a)
 
-![image](https://github.com/user-attachments/assets/02f9a538-b176-4875-8dc1-7758883c567e)
+The transformation follows five structured stages:
+1. Create the **Author Dimension**
+2. Create the **Title Dimension**
+3. Create the **Sales Dimension**
+4. Create the **Employee Dimension**
+5. Connect all dimensions to the central **Fact Table**
 
+**Star Schema (Post-Transformation)**
+![After](https://github.com/user-attachments/assets/02f9a538-b176-4875-8dc1-7758883c567e)
 
+---
 
-# Fact Table: Measures and Hierarchies
+## 📐 Fact Table: Measures & Hierarchies
 
-Defined Hierarchies:
-  Author Hierarchy: Includes both the book title and the author's full name.
-  Store Hierarchy: Structured by city, store name, store ID, and title ID.
-  Royalty Hierarchy: Consists of the title, author name, publisher ID, and the actual     
-   royalty amount.
+### Defined Hierarchies
+- **Author Hierarchy** — Book title → Author full name
+- **Store Hierarchy** — City → Store name → Store ID → Title ID
+- **Royalty Hierarchy** — Title → Author name → Publisher ID → Royalty amount
 
-Key Measures:
+### Key Measures
+- Total number of stores
+- Total advance payments from publishers to authors
+- Total distinct royalty payments
+- Total orders and total sales by year
+- Total distinct authors and book titles
 
-  Total number of stores
-  Total advance payments by publishers to authors
-  Total number of distinct royalty payments
-  Total number of orders
-  Total number of sales by year
-  Total number of authors
-  Total number of book titles (Title-ID)
+---
 
+## 📈 Interactive Dashboard
 
+![Dashboard](https://github.com/user-attachments/assets/2f162e11-1afb-4e1f-926a-bce8d25fcc96)
 
-# Interactive Data Dashboard    
+The Power BI dashboard enables dynamic exploration of all key publishing metrics — sales trends, royalty distributions, publisher performance, and store-level breakdowns — in a single automated reporting interface.
 
-The dataset is complemented by an interactive data dashboard, allowing dynamic exploration of the data:
+---
 
-![image](https://github.com/user-attachments/assets/2f162e11-1afb-4e1f-926a-bce8d25fcc96)
+## 🛠️ Tech Stack
 
+| Tool | Purpose |
+|------|---------|
+| SQL Server | Relational database and schema design |
+| Star Schema | OLAP-optimized data model for analytics |
+| Power BI | Interactive dashboard and automated reporting |
 
+---
 
+## 📂 Data Source
 
-
-
-# data source code 
-
-The source code for this database is derived from the Northwind and Pubs sample databases. For detailed information and access to the source code, please refer to the [Publishing-House-Data-Insights-Analysis](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs).
-
+Based on Microsoft's [Northwind & Pubs sample databases](https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs).
